@@ -91,3 +91,37 @@ pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
 // Button Events
 document.querySelector('#prev-page').addEventListener('click', showPrevPage);
 document.querySelector('#next-page').addEventListener('click', showNextPage);
+
+
+function sendData(data) {
+  fetch('/api/data', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      return response.json();
+  })
+  .then(data => {
+      console.log(data);
+  })
+  .catch(error => {
+      console.error('There has been a problem with your fetch operation:', error);
+  });
+}
+
+// Usage
+let data = {
+  key1: pageNum
+};
+
+const delButton = document.querySelectorAll('#post-btn-del')
+const subButton = document.querySelectorAll('#post-btn-sub')
+
+delButton.addEventListener('click', sendData())
+subButton.addEventListener('click', sendData())

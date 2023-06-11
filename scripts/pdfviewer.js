@@ -116,12 +116,12 @@ function sendData(data) {
 }
 
 // Usage
-let data = {
+let pageNumData = {
   key1: pageNum
 };
 
 const delButton = document.querySelectorAll('#post-btn-del')
 const subButton = document.querySelectorAll('#post-btn-sub')
 
-delButton.addEventListener('click', sendData())
-subButton.addEventListener('click', sendData())
+delButton.addEventListener('click', sendData(pageNumData))
+subButton.addEventListener('click', sendData(pageNumData))

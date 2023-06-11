@@ -194,6 +194,11 @@ li {
     font-style: italic;
 }
 
+.content__item {
+    display: flex;
+    align-items: center;
+}
+
 .content__item:hover {
     list-style-type: circle;
 }
